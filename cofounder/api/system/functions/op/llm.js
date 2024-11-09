@@ -57,9 +57,11 @@ async function opLlmGen({ context, data }) {
 		parser = utils.parsers.parse.yaml;
 	}
 
+
+	let isOpenAi = process.env.LLM_PROVIDER.toLowerCase() === "local" || process.env.LLM_PROVIDER.toLowerCase() === "openai"
 	const llm_fn = !process.env.LLM_PROVIDER
 		? utils.openai.inference
-		: process.env.LLM_PROVIDER.toLowerCase() === "openai"
+		: isOpenAi
 			? utils.openai.inference
 			: utils.anthropic.inference;
 

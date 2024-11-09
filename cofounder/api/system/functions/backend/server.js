@@ -297,7 +297,7 @@ now do the analysis , write the full working script and specify the dependencies
 			},
 		},
 		data: {
-			model: `chatgpt-4o-latest`, //`gpt-4o`,
+			model: process.env.LOCAL_INFERENCE_MODEL, //`gpt-4o`,
 			messages: messages,
 			preparser: false,
 			parser: false,
